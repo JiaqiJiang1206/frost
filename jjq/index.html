@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>frost</title>
+  <style>
+    * {
+      margin:0;
+      padding:0;
+    }
+    body {
+      margin: 0;
+      overflow: hidden;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      /* 隐藏body窗口区域滚动条 */
+    }
+
+  </style>
+  <script type = "text/javascript" src = "p5.js"></script>
+  <script type = "text/javascript" src = "p5.sound.js"></script>
+  <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
+  <script type="text/javascript" src="sketch.js"></script>
+
+</head>
+
+<body  id="body">
+
+</div>
+</body>
+<script>
+
+  let con=document.getElementById("body");
+  let divList=[];
+  setInterval(function (){
+    let div=document.createElement("div");
+    //NOTES position:布局模式；left:距离屏幕左侧的位置，单位：px/%; top:距离屏幕顶部的距离;width:宽;height:高；
+    let k = Math.random();
+    div.setAttribute("style","background-image: url(\"p1.jpg\");width: "+String(100*k+100)+"px; height:"+String(100*k+100)+ "px;background-size: 100% 100%;background-repeat: no-repeat;position: absolute;left:"+String(Math.random()*window.innerWidth-50)+"px;top:"+String(Math.random()*window.innerHeight)+"px");
+    con.appendChild(div);
+    divList.push(div);
+  },1000)
+
+
+  animate();
+  //动画函数
+  function animate(time) {
+    render();
+  }
+
+  function  render(){
+    requestAnimationFrame(render);
+    for(let i=0;i<divList.length;i++){
+      let divX =divList[i].getBoundingClientRect().left+75;
+      let divY =divList[i].getBoundingClientRect().top+75;
+
+      if(compare(noseX,noseY,divX, divY) || compare(rightHandX,rightHandY,divX, divY) || compare(leftHandX,leftHandY,divX, divY)){
+        divList[i].remove();
+      }
+    }
+  }
+  function compare(x1,y1,x2,y2){//距离小于50，则返回真
+    let length = Math.sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2));
+    if(length < 200){
+      return true;
+    }
+  }
+</script>
+</html>
