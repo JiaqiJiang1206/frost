@@ -38,10 +38,20 @@
     let div=document.createElement("div");
     //NOTES position:布局模式；left:距离屏幕左侧的位置，单位：px/%; top:距离屏幕顶部的距离;width:宽;height:高；
     let k = Math.random();
-    div.setAttribute("style","background-image: url(\"p1.jpg\");width: "+String(100*k+100)+"px; height:"+String(100*k+100)+ "px;background-size: 100% 100%;background-repeat: no-repeat;position: absolute;left:"+String(Math.random()*window.innerWidth-50)+"px;top:"+String(Math.random()*window.innerHeight)+"px");
+    let ran = Math.random()*3;
+    if(Math.ceil(ran) == 1){
+      div.setAttribute("style","background-image: url(\"pic1.png\");width: "+String(100*k+150)+"px; height:"+String(100*k+150)+ "px;background-size: 100% 100%;background-repeat: no-repeat;position: absolute;left:"+String(Math.random()*window.innerWidth-100)+"px;top:"+String(Math.random()*window.innerHeight-100)+"px");
+    }
+    if(Math.ceil(ran) == 2){
+      div.setAttribute("style","background-image: url(\"pic2.png\");width: "+String(100*k+150)+"px; height:"+String(100*k+150)+ "px;background-size: 100% 100%;background-repeat: no-repeat;position: absolute;left:"+String(Math.random()*window.innerWidth-100)+"px;top:"+String(Math.random()*window.innerHeight-100)+"px");
+    }
+    if(Math.ceil(ran) == 3){
+      div.setAttribute("style","background-image: url(\"pic3.png\");width: "+String(100*k+150)+"px; height:"+String(100*k+150)+ "px;background-size: 100% 100%;background-repeat: no-repeat;position: absolute;left:"+String(Math.random()*window.innerWidth-100)+"px;top:"+String(Math.random()*window.innerHeight-100)+"px");
+    }
+
     con.appendChild(div);
     divList.push(div);
-  },1000)
+  },100)
 
 
   animate();
@@ -53,8 +63,8 @@
   function  render(){
     requestAnimationFrame(render);
     for(let i=0;i<divList.length;i++){
-      let divX =divList[i].getBoundingClientRect().left+75;
-      let divY =divList[i].getBoundingClientRect().top+75;
+      let divX =divList[i].getBoundingClientRect().left+100;
+      let divY =divList[i].getBoundingClientRect().top+100;
 
       if(compare(noseX,noseY,divX, divY) || compare(rightHandX,rightHandY,divX, divY) || compare(leftHandX,leftHandY,divX, divY)){
         divList[i].remove();
@@ -63,7 +73,7 @@
   }
   function compare(x1,y1,x2,y2){//距离小于50，则返回真
     let length = Math.sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2));
-    if(length < 200){
+    if(length < 150){
       return true;
     }
   }

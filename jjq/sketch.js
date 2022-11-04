@@ -5,7 +5,17 @@ let pose;
 let noseX;
 let noseY;
 
+let rightHandX;
+let rightHandY;
 
+let leftHandX;
+let leftHandY;
+
+// let textures = [];
+
+function preload() {
+  // spritesheet = loadImage('flakes32.png');
+}
 
 function setup() {
   ellipseMode(RADIUS);
@@ -16,6 +26,13 @@ function setup() {
   video = createCapture(VIDEO);
   video.size(windowWidth, windowHeight);
   video.hide();
+  // for (let x = 0; x < spritesheet.width; x += 32) {//切割雪花图像
+  //   for (let y = 0; y < spritesheet.height; y += 32) {
+  //     let img = spritesheet.get(x, y, 32, 32);
+  //     image(img, x, y);
+  //     textures.push(img);
+  //   }
+  // }
 
   poseNet = ml5.poseNet(video, modelLoaded);
   poseNet.on('pose', gotPoses);
