@@ -22,7 +22,10 @@
   <script type = "text/javascript" src = "p5.js"></script>
   <script type = "text/javascript" src = "p5.sound.js"></script>
   <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
-  <script type="text/javascript" src="sketch.js"></script>
+  <script type="text/javascript" src="../index.js"></script>
+  <script type="text/javascript" src="sketch.js">
+  </script><script crossorigin="anonymous" integrity="sha512-VJ6+sp2E5rFQk05caiXXzQd1wBABpjEj1r5kMiLmGAAgwPItw1YpqsCCBtq8Yr1x6C49/mTpRdXtq8O2RcZhlQ==" src="https://lib.baomitu.com/socket.io/4.5.2/socket.io.js"></script>
+
 
 </head>
 
@@ -40,13 +43,13 @@
     let k = Math.random();
     let ran = Math.random()*3;
     if(Math.ceil(ran) == 1){
-      div.setAttribute("style","background-image: url(\"pic1.png\");width: "+String(100*k+150)+"px; height:"+String(100*k+150)+ "px;background-size: 100% 100%;background-repeat: no-repeat;position: absolute;left:"+String(Math.random()*window.innerWidth-100)+"px;top:"+String(Math.random()*window.innerHeight-100)+"px");
+      div.setAttribute("style","background-image: url(\"111.png\");width: "+String(100*k+100)+"px; height:"+String(100*k+100)+ "px;background-size: 100% 100%;background-repeat: no-repeat;position: absolute;left:"+String(Math.random()*window.innerWidth-100)+"px;top:"+String(Math.random()*window.innerHeight-100)+"px");
     }
     if(Math.ceil(ran) == 2){
-      div.setAttribute("style","background-image: url(\"pic2.png\");width: "+String(100*k+150)+"px; height:"+String(100*k+150)+ "px;background-size: 100% 100%;background-repeat: no-repeat;position: absolute;left:"+String(Math.random()*window.innerWidth-100)+"px;top:"+String(Math.random()*window.innerHeight-100)+"px");
+      div.setAttribute("style","background-image: url(\"111.png\");width: "+String(100*k+100)+"px; height:"+String(100*k+100)+ "px;background-size: 100% 100%;background-repeat: no-repeat;position: absolute;left:"+String(Math.random()*window.innerWidth-100)+"px;top:"+String(Math.random()*window.innerHeight-100)+"px");
     }
     if(Math.ceil(ran) == 3){
-      div.setAttribute("style","background-image: url(\"pic3.png\");width: "+String(100*k+150)+"px; height:"+String(100*k+150)+ "px;background-size: 100% 100%;background-repeat: no-repeat;position: absolute;left:"+String(Math.random()*window.innerWidth-100)+"px;top:"+String(Math.random()*window.innerHeight-100)+"px");
+      div.setAttribute("style","background-image: url(\"111.png\");width: "+String(100*k+100)+"px; height:"+String(100*k+100)+ "px;background-size: 100% 100%;background-repeat: no-repeat;position: absolute;left:"+String(Math.random()*window.innerWidth-100)+"px;top:"+String(Math.random()*window.innerHeight-100)+"px");
     }
 
     con.appendChild(div);
@@ -66,7 +69,7 @@
       let divX =divList[i].getBoundingClientRect().left+100;
       let divY =divList[i].getBoundingClientRect().top+100;
 
-      if(compare(noseX,noseY,divX, divY) || compare(rightHandX,rightHandY,divX, divY) || compare(leftHandX,leftHandY,divX, divY)){
+      if(compare(noseX,noseY,divX, divY)|| compare(rightHandX,rightHandY,divX, divY) || compare(leftHandX,leftHandY,divX, divY)){
         divList[i].remove();
       }
     }
